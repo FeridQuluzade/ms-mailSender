@@ -23,8 +23,6 @@ public class EmailListener {
     @RabbitListener(queues ="${spring.boot.queue}")
     public void sendMail(MessageDto messageDto){
         log.info(messageDto.toString());
-        emailSenderService.sendEmail(messageDto.getEmail(),
-                messageDto.getSubject(),
-                messageDto.getText());
+        emailSenderService.sendEmail(messageDto);
     }
 }
